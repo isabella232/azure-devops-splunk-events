@@ -4,7 +4,7 @@ Add events to Splunk Observability Cloud from Azure DevOps Deploy and Release Pi
 ## Setup your Service Connection
 After installing the Splunk Observability Cloud Events extension you will need to setup 
 your Service Endpoint 
-1. Click Project Settings from the bottom left side of your screen in the main Project area
+1. Click Project Settings from the bottom left side of your screen in the main Azure DevOps Project area
 2. Click Service Connections from the Pipelines area of Project Settings
 3. Click New Service Connection in the top right
 4. Choose the Splunk Observability Service Endpoint as your new service connection
@@ -37,3 +37,19 @@ Once your Service Connection is setup you can start setting up your Pipeline to 
 4. Enable Gates and click Add to add your Splunk Events configuration
     ![release-gate-config](./images/release-gate-settings.png)
     - Choose `Ignore gates outcome and ask for approvals` to ignore any waiting for the release gate and just send the event without confirmation
+
+## License
+
+Copyright 2021 Splunk Inc.
+ 
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+ 
+http://www.apache.org/licenses/LICENSE-2.0
+ 
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.

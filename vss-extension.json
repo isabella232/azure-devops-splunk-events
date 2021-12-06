@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "splunk-events",
   "name": "Splunk Observability Cloud Events",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "publisher": "jeremyh-splunk",
   "public": false,
   "icons": {
