@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "splunk-events",
   "name": "Splunk Observability Cloud Events",
-  "version": "0.0.9",
+  "version": "0.0.13",
   "publisher": "jeremyh-splunk",
   "public": false,
   "icons": {
@@ -54,20 +54,20 @@
     },
     {
       "id": "splunk-endpoint",
-      "description": "Service endpoint type for Splunk Observability",
+      "description": "Events Service endpoint type for Splunk Observability",
       "type": "ms.vss-endpoint.service-endpoint-type",
       "targets": [
         "ms.vss-endpoint.endpoint-types"
       ],
       "properties": {
-        "name": "splunk",
-        "displayName": "Splunk Observability Service Endpoint",
+        "name": "splunk-events-api",
+        "displayName": "Splunk Observability Events API",
         "icons": {
           "default": "splunk-square.png",
           "large": "splunk-square.png"
         },
         "url": {
-          "displayName": "Event API URL",
+          "displayName": "Splunk Observability Events API URL",
           "value": "https://ingest.us1.signalfx.com/v2",
           "helpText": "Url for your Splunk Observability Ingest",
           "isVisible": "false",

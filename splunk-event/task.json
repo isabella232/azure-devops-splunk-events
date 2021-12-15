@@ -1,6 +1,6 @@
 {
   "id": "5c1058b2-bc81-4fcb-afed-868d7ffde4a5",
-  "name": "Splunk Observability Cloud",
+  "name": "Splunk Observability Cloud Events",
   "friendlyName": "Send events to Splunk Observability",
   "description": "Send events to Splunk Observability",
   "author": "Splunk",
@@ -18,14 +18,14 @@
   "version": {
     "Major": 0,
     "Minor": 0,
-    "Patch": 7
+    "Patch": 13
   },
   "instanceNameFormat": "Send Splunk Events",
   "inputs": [
     {
-      "name": "SplunkService",
-      "type": "connectedService:Splunk",
-      "label": "Splunk Observability Cloud Service Connection",
+      "name": "splunk-events-api",
+      "type": "connectedService:splunk-events-api",
+      "label": "Splunk Observability Events API",
       "defaultValue": "",
       "required": "true",
       "helpMarkDown": "Select a Splunk Observability Cloud service connection"
@@ -48,7 +48,7 @@
   "execution": {
     "HttpRequest": {
       "Execute": {
-        "EndpointId": "$(splunkService)",
+        "EndpointId": "$(splunk-events-api)",
         "EndpointUrl": "$(endpoint.url)/event",
         "Method": "POST",
         "Body": "[{\"category\": \"USER_DEFINED\",\"eventType\": \"$(eventType)\",\"dimensions\": {\"environment\": \"$(environment)\",\"service\": \"API\"}}]",

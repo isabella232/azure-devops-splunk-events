@@ -26,6 +26,7 @@ Once your Service Connection is setup you can start setting up your Pipeline to 
             environment: 'production'
             eventType: 'Azure DevOps deployment of test-the-tools'
     ```
+    *NOTE:* *THIS MUST BE ITS OWN JOB WITH `pool: server`!* otherwise you will get a message indicating that the task is looking for the wrong integration.
     - The `eventType` will be the title of your event in Splunk Observability Cloud and will be used to match the event later for visualizing as an overlay on charts/dashboards.
 4. Save your pipeline
 
