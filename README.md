@@ -7,14 +7,15 @@ your Service Endpoint
 1. Click Project Settings from the bottom left side of your screen in the main Azure DevOps Project area
 2. Click Service Connections from the Pipelines area of Project Settings
 3. Click New Service Connection in the top right
-4. Choose the Splunk Observability Service Endpoint as your new service connection
-5. Enter your Splunk Observability Cloud Ingest API token which you obtained from Splunk Observability Cloud > Access Tokens. Make sure the token is scoped for API and Ingest ![Example](./images/access-token-box.png)
+4. Choose the `Splunk Observability Events API` as your new service connection
+5. Enter your Splunk Observability Ingest API URL *including trailing `/`* (E.G. `https://ingest.us1.signalfx.com/v2/`)
+6. Enter your Splunk Observability Cloud Ingest API token which you obtained from Splunk Observability Cloud > Access Tokens. Make sure the token is scoped for API and Ingest ![Example](./images/access-token-box.png)
 
 ## Setup your Build Pipeline Job to emit an event
 Once your Service Connection is setup you can start setting up your Pipeline to emit events when it is run.
 1. Edit your Pipeline to view its YAML configuration
 2. If you are not already using a Multi-Job Pipeline configure the appropriate `jobs:` and `-job:` tags and formatting. See the [Azure DevOps Docs](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/phases?view=azure-devops&tabs=yaml#multi-job-configuration) for details.
-3. Add the configuration for your Splunk Event. You can either search for `Splunk` in the Tasks sidebar or add the appropriate YAML
+3. Add the configuration for your Splunk Event. You can either search for `Splunk` in the Tasks sidebar or add the appropriate YAML manually
     ```
       - job: notify_splunk
         pool: server
@@ -26,8 +27,8 @@ Once your Service Connection is setup you can start setting up your Pipeline to 
             environment: 'production'
             eventType: 'Azure DevOps deployment of test-the-tools'
     ```
-    *NOTE:* *THIS MUST BE ITS OWN JOB WITH `pool: server`!* otherwise you will get a message indicating that the task is looking for the wrong integration.
-    - The `eventType` will be the title of your event in Splunk Observability Cloud and will be used to match the event later for visualizing as an overlay on charts/dashboards.
+    **NOTE:** *THIS MUST BE ITS OWN JOB WITH `pool: server`* otherwise you will get a message indicating that the task is looking for the wrong integration.
+    - The `eventType` will be the title of your event in Splunk Observability Cloud and will be used to match the event later for visualizing as an [overlay on Splunk Observability charts/dashboards](https://docs.signalfx.com/en/latest/dashboards/dashboard-add-info.html#overlaying-event-markers-on-charts-in-a-dashboard).
 4. Save your pipeline
 
 ## Setup your Release Pipeline to emit an event
@@ -37,7 +38,7 @@ Once your Service Connection is setup you can start setting up your Pipeline to 
     ![deployment-conditions](./images/deployment-conditions.png)
 4. Enable Gates and click Add to add your Splunk Events configuration
     ![release-gate-config](./images/release-gate-settings.png)
-    - Choose `Ignore gates outcome and ask for approvals` to ignore any waiting for the release gate and just send the event without confirmation
+    - You can then enter a Display Name for your Event gate, select the Service Connection you'd like to use, and assign your `environment` and `eventType` as described above for [event overlays on your Splunk Observability dashboard charts](https://docs.signalfx.com/en/latest/dashboards/dashboard-add-info.html#overlaying-event-markers-on-charts-in-a-dashboard).
 
 ## License
 

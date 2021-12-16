@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "splunk-events",
   "name": "Splunk Observability Cloud Events",
-  "version": "0.0.13",
+  "version": "0.0.22",
   "publisher": "jeremyh-splunk",
   "public": false,
   "icons": {
@@ -67,11 +67,10 @@
           "large": "splunk-square.png"
         },
         "url": {
-          "displayName": "Splunk Observability Events API URL",
-          "value": "https://ingest.us1.signalfx.com/v2",
-          "helpText": "Url for your Splunk Observability Ingest",
-          "isVisible": "false",
-          "required": "false"
+          "displayName": "Splunk Observability API URL",
+          "helpText": "URL for your Splunk Observability Instance's Ingest API (E.G. https://ingest.us1.signalfx.com/v2/)",
+          "isVisible": "true",
+          "required": "true"
         },
         "authenticationSchemes": [
           {
