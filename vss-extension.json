@@ -2,9 +2,9 @@
   "manifestVersion": 1,
   "id": "splunk-events",
   "name": "Splunk Observability Cloud Events",
-  "version": "0.0.22",
+  "version": "1.0.2",
   "publisher": "jeremyh-splunk",
-  "public": false,
+  "public": true,
   "icons": {
     "default": "splunk-square.png"
   },
@@ -34,6 +34,18 @@
     }
   ],
   "links": {
+    "home": {
+      "uri": "https://www.splunk.com"
+    },
+    "support": {
+        "uri": "https://github.com/splunk/azure-devops-splunk-events/issues"
+    },
+    "repository": {
+        "uri": "https://github.com/splunk/azure-devops-splunk-events/"
+    },
+    "issues": {
+        "uri": "https://github.com/splunk/azure-devops-splunk-events/issues"
+    },
     "getstarted": {
       "uri": "https://dev.splunk.com/observability/"
     },
